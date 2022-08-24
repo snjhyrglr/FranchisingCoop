@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Barangays</h1>
+
+<div id="barangays">
+  <% @barangays.each do |barangay| %>
+    <%= render barangay %>
+    <p>
+      <%= link_to "Show this barangay", barangay %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New barangay", new_barangay_path %>

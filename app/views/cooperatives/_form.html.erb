@@ -1,0 +1,35 @@
+
+<%= simple_form_for(@cooperative) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+   
+    <div class="row" data-controller="provinces" data-provinces-show-if-value="">
+      <%= f.association :region, input_html: { class: "form-select", data: { action: "change->provinces#change", provinces_target: "input" } } %>
+      <div data-controller="municipalities">
+        <div data-provinces-target="output">
+          <%= f.association :province, input_html: { class: "form-select", id: "province_id", data: { action: "change->municipalities#change", provinces_target: "provinceSelect", municipalities_target: "input" } } %>
+        </div>
+        <div data-controller=barangays data-municipalities-show-if-value="">
+          <div data-municipalities-target="output">
+            <%= f.association :municipality, input_html: { class: "form-select", id: "municipality_id", data: { action: "change->barangays#change", municipalities_target: "municipalitySelect" } } %>
+          </div>
+          <%= f.association :barangay, input_html: { class: "form-select", id: "barangay_id", data: { barangays_target: "barangaySelect" } } %>
+        </div>
+      </div>
+    </div>
+
+    <%= f.input :address %>
+    <%= f.input :category %>
+    <%= f.input :coop_type %>
+    <%= f.input :status %>
+    <%= f.input :asset_size %>
+    <%= f.input :total_asset %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

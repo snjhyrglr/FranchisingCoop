@@ -1,0 +1,5 @@
+<%= turbo_stream.update @target do %>
+  <%= @barangays.each do |bar| %>
+    <%= content_tag :option, bar.name, value: bar.id %>
+  <% end %>
+<% end %>

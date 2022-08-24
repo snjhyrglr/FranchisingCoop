@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  region: one
+  province: one
+  name: MyString
+  psgc_code: MyString
+
+two:
+  region: two
+  province: two
+  name: MyString
+  psgc_code: MyString

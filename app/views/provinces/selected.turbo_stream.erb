@@ -1,0 +1,5 @@
+<%= turbo_stream.update @target do %>
+  <%= @municipalities.each do |mun| %>
+    <%= content_tag :option, mun.name, value: mun.id %>
+  <% end %>
+<% end %>
