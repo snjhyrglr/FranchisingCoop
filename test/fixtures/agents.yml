@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  region: one
+  last_name: MyString
+  first_name: MyString
+  middle_name: MyString
+  position: MyString
+  hired: 2022-08-24
+  email: MyString
+  contact_no: MyString
+  status: MyString
+  licensed: false
+  active: false
+
+two:
+  region: two
+  last_name: MyString
+  first_name: MyString
+  middle_name: MyString
+  position: MyString
+  hired: 2022-08-24
+  email: MyString
+  contact_no: MyString
+  status: MyString
+  licensed: false
+  active: false

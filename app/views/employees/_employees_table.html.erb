@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <%= content_tag :th, 'ID' %>
+    <%= content_tag :th, 'Employee No.' %>
+    <%= content_tag :th, 'Name' %>
+    <%= content_tag :th, 'Dept/Div' unless params[:controller] == 'divisions' %>
+    <%= content_tag :th, '' %>
+  </thead>
+  <tbody>
+    <% for employee in employees %>
+      <tr>
+        <%= content_tag :td, employee.id %>
+        <%= content_tag :td, employee.employee_no %>
+        <%# content_tag :td, employee.name %>
+        <td>
+          <%= content_tag :p, employee.name.titleize, class: 'lead mb-0' %>
+          <%= content_tag :p, employee.user_name, class: 'text-secondary font-italic mb-0' %>
+        </td>
+
+        <% unless params[:controller] == 'divisions' %>
+          <td>
+            <%= content_tag :p, link_to(employee.department, employee.department) %>
+            <%= content_tag :p, link_to(employee.division, employee.division) %>
+          </td>
+        <% end %>
+        <td>
+          <%= link_to 'View', employee %>
+          <%= link_to 'Edit', edit_employee_path(employee) %>
+          <%= link_to 'Delete', employee, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete, } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

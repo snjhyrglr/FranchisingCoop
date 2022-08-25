@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cooperative: one
+  franchisee: one
+  franchisee_type: Franchisee
+  product: one
+  status: MyString
+  creator: one
+  creator_type: Creator
+  expiry: 2022-08-24
+
+two:
+  cooperative: two
+  franchisee: two
+  franchisee_type: Franchisee
+  product: two
+  status: MyString
+  creator: two
+  creator_type: Creator
+  expiry: 2022-08-24

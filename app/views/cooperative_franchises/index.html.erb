@@ -1,0 +1,35 @@
+
+<h1>Cooperative franchises</h1>
+
+<div id="cooperative_franchises table-responsive-lg" class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <%= content_tag :th, "Coop" %>
+      <% @products.each do |product| %>
+        <%= content_tag :th, product.name %>
+      <% end %>
+    </thead>
+    <tbody>
+      <% @cooperative_franchises.each do |cf| %>
+        <tr>
+
+          <%= content_tag :td, link_to(cf.cooperative.name, cf) %>
+
+          <% @products.each do |product| %>
+            <% if cf.product_id == product.id %>
+              <td>
+                <%= content_tag :p, cf.franchisee_id %>
+                <%= content_tag :p, cf.status %>
+              </td>
+            <% else %>
+              <%= content_tag :td, "" %>
+            <% end %>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New cooperative franchise", new_cooperative_franchise_path, class: 'btn btn-primary' %>

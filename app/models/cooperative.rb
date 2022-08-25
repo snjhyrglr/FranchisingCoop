@@ -3,4 +3,6 @@ class Cooperative < ApplicationRecord
   belongs_to :province, optional: true
   belongs_to :municipality, optional: true
   belongs_to :barangay, optional: true
+
+  has_many :cooperative_franchises
 end

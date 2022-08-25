@@ -4,10 +4,12 @@ class RegionsController < ApplicationController
   # GET /regions or /regions.json
   def index
     @regions = Region.all
+
   end
 
   # GET /regions/1 or /regions/1.json
   def show
+    @cooperatives = @region.cooperatives.paginate(page: params[:page], per_page: 25)
   end
 
   # GET /regions/new

@@ -7,12 +7,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <%= render 'layouts/sidebar' %>
+        <div class="col py-3">
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

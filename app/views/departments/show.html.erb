@@ -1,0 +1,14 @@
+
+<%= content_tag :h1, @department.name %>
+
+<%= content_tag :h5, "Department Employees" %>
+
+<%= render 'employees/employees_table', employees: @department.employees %>
+
+
+<div>
+  <%= link_to "Edit this department", edit_department_path(@department) %> |
+  <%= link_to "Back to departments", departments_path %>
+
+  <%= button_to "Destroy this department", @department, method: :delete %>
+</div>

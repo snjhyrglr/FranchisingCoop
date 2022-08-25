@@ -1,0 +1,31 @@
+
+<h1>Divisions</h1>
+
+<table class="table">
+  <thead>
+    <%= content_tag :th, 'ID' %>
+    <%= content_tag :th, 'Name' %>
+    <%= content_tag :th, 'Departments' %>
+    <%= content_tag :th, '' %>
+  </thead>
+  <tbody>
+    <% for division in @divisions %>
+      <tr>
+        <%= content_tag :td, division.id %>
+        <%= content_tag :td, division.name %>
+        <td>
+          <% for department in division.departments %>
+            <%= content_tag :p, link_to(department, department) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'View', division %>
+          <%= link_to 'Edit', division_path(division) %>
+          <%= link_to 'Delete', division, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete, } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New division", new_division_path %>

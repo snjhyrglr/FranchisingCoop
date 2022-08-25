@@ -1,0 +1,68 @@
+<%= content_tag :h1, "List of Agents" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_agent_path, class: 'btn btn-primary' do %>
+    New Agent
+  <% end %>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+
+        <th>ID</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Position</th>
+        <th>Hired</th>
+        <th>Email</th>
+        <th>Contact No</th>
+        <th>Status</th>
+        <th>Licensed</th>
+        <th>Active</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @agents.group_by(&:region).each do |region, agents| %>
+        <tr>
+          <td colspan=12 class="bg-dark">
+            <!-- <p class='lead text-white mb-0'>
+              <%# link_to region, region %>
+            </p> -->
+            <%= content_tag :p, link_to(region, region) , class: 'lead text-white mb-0' %>
+          </td>
+        </tr>
+
+        <% agents.each do |agent| %>
+        <tr>
+          <td><%= agent.id %></td>
+          <td><%= agent.last_name %></td>
+          <td><%= agent.first_name %></td>
+          <td><%= agent.middle_name %></td>
+          <td><%= agent.position %></td>
+          <td><%= agent.hired %></td>
+          <td><%= agent.email %></td>
+          <td><%= agent.contact_no %></td>
+          <td><%= agent.status %></td>
+          <td><%= agent.licensed %></td>
+          <td><%= agent.active %></td>
+
+          <td>
+            <%= link_to 'View', agent, class: 'btn' %>
+            <%= link_to 'Edit', edit_agent_path(agent), class: 'btn' %>
+            <%= link_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+        </tr>
+        <% end %>
+
+
+      <% end %>
+    </tbody>
+  </table>
+</div>

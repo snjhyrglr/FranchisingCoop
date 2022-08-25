@@ -4,7 +4,7 @@ class CooperativesController < ApplicationController
   # GET /cooperatives or /cooperatives.json
   def index
     # @cooperatives = Cooperative.all
-    @cooperatives = Cooperative.order('total_asset desc').paginate(page: params[:page], per_page: 25)
+    @cooperatives = Cooperative.includes(:region).order('total_asset desc').paginate(page: params[:page], per_page: 25)
   end
 
   # GET /cooperatives/1 or /cooperatives/1.json

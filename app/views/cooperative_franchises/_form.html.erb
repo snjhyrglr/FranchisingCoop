@@ -1,0 +1,29 @@
+
+<%= simple_form_for(@cooperative_franchise) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :cooperative,
+          prompt: 'Choose Coop',
+          hint: 'Type the first letters of the coop, then select.',
+          input_html: { class: 'form-select' },
+          wrapper_html: { class: 'mb-3' } %>
+
+    <%# f.association :franchisee %>
+    <%= f.association :product,
+          prompt: 'Choose Product',
+          input_html: { class: 'form-select' },
+          wrapper_html: { class: 'mb-3' } %>
+
+    <%= f.input :status,
+          collection: CooperativeFranchise::STATUS,
+          input_html: { class: 'form-select' },
+          wrapper_html: { class: 'mb-3' } %>
+    <%# f.association :creator %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= content_tag :h1, @division.name %>
+
+<%= link_to "Back", divisions_path, class: 'btn btn-secondary' %>
+<%= link_to "Edit", edit_division_path(@division), class: 'btn btn-warning' %>
+<%= link_to "Delete", @division, data: { turbo_method: :delete, turbo_confirm: 'Sigurado ka?' }, class: 'btn btn-danger' %>
+
+
+
+<% @division.departments.each do |department| %>
+
+  <%= content_tag :h5, department.name, class: 'alert alert-primary mt-5' %>
+
+  <%= content_tag :h5, "Department Employees" %>
+
+  <%= render 'employees/employees_table', employees: department.employees %>
+
+<% end %>

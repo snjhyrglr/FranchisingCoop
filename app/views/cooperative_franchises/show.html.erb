@@ -1,0 +1,10 @@
+
+<%= render @cooperative_franchise %>
+
+<div>
+  <%= link_to "Edit", edit_cooperative_franchise_path(@cooperative_franchise), class: 'btn btn-warning' %> |
+  <%= link_to "Back", cooperative_franchises_path, class: 'btn btn-secondary' %>
+
+  <%= link_to "Delete", @cooperative_franchise, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
+</div>

@@ -1,0 +1,32 @@
+<div id="<%= dom_id cooperative_franchise %>">
+  <p>
+    <strong>Cooperative:</strong>
+    <%= cooperative_franchise.cooperative.name %>
+  </p>
+
+  <p>
+    <strong>Franchisee:</strong>
+    <%= cooperative_franchise.franchisee_id %>
+  </p>
+
+  <p>
+    <strong>Product:</strong>
+    <%= cooperative_franchise.product.name %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= cooperative_franchise.status %>
+  </p>
+
+  <p>
+    <strong>Creator:</strong>
+    <%= cooperative_franchise.creator_id %>
+  </p>
+
+  <p>
+    <strong>Expiry:</strong>
+    <%= format_date(cooperative_franchise.expiry) %>
+  </p>
+
+</div>

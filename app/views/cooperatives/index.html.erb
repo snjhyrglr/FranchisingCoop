@@ -26,7 +26,7 @@
           <td><%= coop.registration_no %></td>
           <td><%= coop.category %></td>
           <td><%= coop.coop_type %></td>
-          <td><%= coop.region %></td>
+          <td><%= link_to coop.region, coop.region, class: "link-success" %></td>
           <td><%= coop.status %></td>
           <td><%= coop.asset_size %></td>
           <td><%= number_to_currency(coop.total_asset, locale: :ph) %></td>
